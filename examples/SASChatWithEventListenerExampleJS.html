@@ -1,0 +1,24 @@
+<html>
+
+    <head>
+        <script src="https://unpkg.com/@sassoftware/conversation-designer-components@0.1.0/conversation-designer-components.js"></script>
+    </head>
+    <body>
+        <div id="chatContent" style="height: 75%;"></div>
+        <div id="eventOutput" style="height: 25%; margin: 0 1rem; overflow: auto;">Events from sas-chat:<br></div>
+    </body>
+
+    <script>
+
+        const chatElement = new conversationDesignerComponents.SASChatElement();
+        chatElement.url="YOUR-VIYA-URL"
+        chatElement.botUri="YOUR-BOT-URI"
+        chatElement.connectorName="YOUR-CONNECTOR-NAME"
+        chatElement.chatEventListener = function(event){
+            eventOutput.innerHTML+=event.type+"<br>";
+        }
+
+        chatContent.appendChild(chatElement);
+
+    </script>
+</html>
