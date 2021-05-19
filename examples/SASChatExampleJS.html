@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/@sassoftware/conversation-designer-components@0.1.0/conversation-designer-components.js"></script>
+    </head>
+    <body>
+    </body>
+
+    <script>
+        const chatElement = new conversationDesignerComponents.SASChatElement();
+        chatElement.url="YOUR-VIYA-URL"
+        chatElement.botUri="YOUR-BOT-URI"
+        chatElement.connectorName="YOUR-CONNECTOR-NAME"
+        document.body.appendChild(chatElement);
+    </script>
+</html>
