@@ -32,11 +32,11 @@ The library can then be loaded out of the deployed assets folder using a `script
 
 Accessing the `conversation-designer-components` library from a CDN is easy. It does not require installation or
 hosting of the library code and assets. There are several public options for accessing npm content through a CDN, such
-as <a target="_blank" href="https://unpkg.com/">UNPKG</a> and <a target="_blank" href="https://www.jsdelivr.com/">jsDelivr</a>. Here is an example of loading the 0.1.0 version of `conversation-designer-components` from UNPKG
+as <a target="_blank" href="https://unpkg.com/">UNPKG</a> and <a target="_blank" href="https://www.jsdelivr.com/">jsDelivr</a>. Here is an example of loading the 0.2.0 version of `conversation-designer-components` from UNPKG
 using an HTML `script` tag. When used in production, the version should be pinned to the full `major.minor.patch` semantic version.
 
 ```html
-<script async src="https://unpkg.com/@sassoftware/conversation-designer-components@0.1.0/conversation-designer-components.js"></script>
+<script async src="https://unpkg.com/@sassoftware/conversation-designer-components@0.2.0/conversation-designer-components.js"></script>
 ```
 
 # Getting Started
@@ -175,6 +175,21 @@ Specify the border color of the user input bubbles.
 
 Specify the text color of the user input bubbles.
 
+### Dispatching Chat Events
+
+Applications using the SAS Conversation Designer SDK may need to dispatch events to the bot based on user interactions outside of the SDK. A common example is needing to end the chat session because the user has closed the window containing the SASChatElement. The SASChatElement adds an event listener to allow chat events to be dispatched from outside of the element. 
+
+Here is an example of dispatching an End Session event:
+
+```html
+window.dispatchEvent(new CustomEvent("chatEvent", {
+  detail: {
+    type: "endSessionEvent"
+  }
+}));
+```
+
+The event type for all chat events is "chatEvent". The "detail" parameter contains the event object to dispatch to the bot. The SASChatElement supports all input event types supported by SAS Conversation Designer.
 
 # Contributing
 
