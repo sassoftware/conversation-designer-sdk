@@ -36,7 +36,7 @@ as <a target="_blank" href="https://unpkg.com/">UNPKG</a> and <a target="_blank"
 using an HTML `script` tag. When used in production, the version should be pinned to the full `major.minor.patch` semantic version.
 
 ```html
-<script async src="https://unpkg.com/@sassoftware/conversation-designer-components@0.2.0/conversation-designer-components.js"></script>
+<script async src="https://unpkg.com/@sassoftware/conversation-designer-components@0.3.0/conversation-designer-components.js"></script>
 ```
 
 # Getting Started
@@ -74,7 +74,8 @@ To find the correct values for the url, botUri, and revisionId attributes, see t
 
 Choose the method to authenticate requests to the SAS Viya server:
 
-- 'guest' automatically signs in to the SAS Viya server as the guest user (authenticationType="guest").
+- 'guest' automatically signs in to the SAS Viya server as the guest user using cookies (authenticationType="guest").
+- 'guest-token' automatically signs in to the SAS Viya server as the guest user using authorization token (authenticationType="guest-token").
 - 'credentials' uses SAS Logon to establish an authenticated session (authenticationType="credentials").
 
 default value: 'credentials'
@@ -95,13 +96,13 @@ default value: '@published'
 
 > userId: string
 
-Specify the user ID. This value is only used when the value of the authenticationType parameter is 'guest'. This is only used for tracking/display and is not related to authorization or security.
+Specify the user ID. This value is only used when the value of the authenticationType parameter is 'guest' or 'guest-token'. This is only used for tracking/display and is not related to authorization or security.
 
 default value: the user ID of the authenticated Viya user
 
 > userName: string
 
-Specify the user name. This value is only used when the value of the authenticationType parameter is 'guest'. This is only used for tracking/display and is not related to authorization or security.
+Specify the user name. This value is only used when the value of the authenticationType parameter is 'guest' or 'guest-token'. This is only used for tracking/display and is not related to authorization or security.
 
 default value: user name of the authenticated Viya user
 
@@ -253,4 +254,4 @@ The value “e09881bb-3206-4d73-a9c0-a6280202c188” should be used as the revis
 
 ## I'm getting a CORS error. How do I fix it?
 
-When the SAS Conversation Designer SDK is deployed in a different domain than SAS Viya, you must update the SAS Viya CORS configuration to allow access. Instructions can be found on [developers.sas.com](https://developer.sas.com/reference/cors).
+When the SAS Conversation Designer SDK is deployed in a different domain than SAS Viya, you must update the SAS Viya CORS configuration to allow access. Instructions can be found on [developer.sas.com](https://developer.sas.com/reference/cors).
